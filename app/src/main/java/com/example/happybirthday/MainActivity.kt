@@ -33,7 +33,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingImage(message = "Happy birthday Artemka!", from = "From Danilka");
+                    GreetingImage(
+                        message = getString(R.string.happy_birthday_artemka),
+                        from = getString(R.string.from_text)
+                    );
                 }
             }
         }
@@ -42,11 +45,11 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
+    // Create a column so that texts don't overlap
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = modifier
-    )
-        {
+    ) {
         Text(
             text = message,
             fontSize = 90.sp,
@@ -58,7 +61,7 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
             fontSize = 36.sp,
             modifier = Modifier
                 .padding(16.dp)
-                .align(alignment = Alignment.End)
+                .align(alignment = Alignment.CenterHorizontally)
         )
     }
 }
